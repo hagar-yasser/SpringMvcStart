@@ -15,6 +15,8 @@ public class AnnotationConfigWebApplicationConfig implements WebApplicationIniti
   public void onStartup(ServletContext servletContext) throws ServletException {
 
     // root app
+    //only to detect beans not configured in the configuration file of the dispatcher servlet
+    //like the service or the repository the dispatcher will by default inherit those beans
     AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
     rootContext.scan("com.vodafone");
 
@@ -25,7 +27,7 @@ public class AnnotationConfigWebApplicationConfig implements WebApplicationIniti
 
     ServletRegistration.Dynamic dynamic = servletContext.addServlet("dispatcherServlet", dispatcherServlet);
 
-    dynamic.addMapping("*.htm");
+    dynamic.addMapping("/springmvc/*");
     dynamic.setLoadOnStartup(1);
 
     servletContext.addListener(new ContextLoaderListener(rootContext));

@@ -43,7 +43,7 @@ public class RegistrationController {
         }
         System.out.println(user);
         userService.save(user);
-        return "redirect:/users/users.htm";
+        return "redirect:/springmvc/users/users.htm";
     }
 
     @GetMapping("/users.htm")

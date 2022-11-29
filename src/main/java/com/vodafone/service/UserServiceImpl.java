@@ -1,6 +1,7 @@
 package com.vodafone.service;
 
 import com.vodafone.model.User;
+import com.vodafone.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -8,15 +9,19 @@ import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
-    List<User> users = new ArrayList<>();
+    UserRepository userRepository;
+
+    public UserServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
     @Override
     public User save(User user) {
-        users.add(user);
-        return user;
+       return userRepository.addUser(user);
     }
 
     @Override
     public List<User> findAll() {
-        return users;
+        return userRepository.findAllUsers();
     }
 }

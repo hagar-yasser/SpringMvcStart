@@ -1,11 +1,18 @@
 package com.vodafone.model;
 
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-
+@Entity
 public class User {
+
+    @Id
+    @GeneratedValue
+    private int id;
     @NotBlank
     private String firstName;
     @NotBlank
@@ -14,6 +21,13 @@ public class User {
     @Min(value = 2000)
     private Integer salary;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getFirstName() {
         return firstName;
     }

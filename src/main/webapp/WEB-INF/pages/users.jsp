@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,9 +12,9 @@
 <table class="table">
     <thead class="table table-dark">
     <tr>
-        <td>firstName</td>
-        <td>lastName</td>
-        <td>salary</td>
+        <td><spring:message code="user.firstName"/></td>
+        <td><spring:message code="user.lastName"/></td>
+        <td><spring:message code="user.salary"/></td>
     </tr>
     </thead>
     <tbody>
