@@ -25,7 +25,7 @@ public class ChangeLocaleController {
     }
     @PostMapping("/changeLocale")
     public String changeLocalePost(@ModelAttribute("localeSelect") LocaleSelect localeSelect, BindingResult bindingResult,Model model){
-        model.addAttribute("locale",localeSelect.getChoice());
+         model.addAttribute("locale",localeSelect.getChoice());
         return "redirect:/springmvc/helloLocale?lang="+localeSelect.getChoice();
     }
     @GetMapping("/helloLocale")
